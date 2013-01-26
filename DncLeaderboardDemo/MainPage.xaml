@@ -1,0 +1,111 @@
+﻿<Page
+    x:Class="DncLeaderboardDemo.MainPage"
+    IsTabStop="false"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DncLeaderboardDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+
+        <Grid Margin="50,50,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Foreground="#0094ff" FontFamily="Segoe UI Light" Margin="0,0,0,6">WINDOWS AZURE MOBILE SERVICES</TextBlock>
+                    <TextBlock Foreground="Gray" FontFamily="Segoe UI Light" FontSize="45" >Tic-Tac-Toe with ZUMO Leaderboard</TextBlock>
+                </StackPanel>
+            </Grid>
+
+
+            <Grid Grid.Row="1">
+                <StackPanel>
+                    <TextBlock Padding="12" Foreground="Gray" Text="Player 1 - Plays with O" FontSize="32"></TextBlock>
+                    <TextBox x:Name="player1Name" Padding="12" Height="45"></TextBox>
+                    <TextBlock Foreground="Gray" Padding="12" Text="Player 2 - Plays with X" FontSize="32"></TextBlock>
+                    <TextBox x:Name="player2Name" Padding="12" Height="45"></TextBox>
+                    <Button Content="New Game" Margin="12" FontSize="28" Height="62" HorizontalAlignment="Stretch" Tapped="NewGameButtonTapped"/>
+                    <TextBlock x:Name="winnerNameText" Foreground="Gray" Padding="12" Text="" FontSize="32"></TextBlock>
+
+                    <ListView Name="ListItems" Margin="0,10,0,0" Height="240">
+                        <ListView.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Tic-Tac-Toe Face-off Score" FontSize="25" Foreground="Gray"></TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Name="Player" Text="Player" FontSize="25" Foreground="Gray" Margin="10,5,0,5" Width="200" VerticalAlignment="Center"/>
+                                        <TextBlock Name="Wins" FontSize="25" Text="Wins" Foreground="Gray" Margin="10,5,0,5" Width="150" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.HeaderTemplate>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Name="Name" FontSize="25" Text="{Binding Name}" Margin="10,5,0,5" Width="200" VerticalAlignment="Center"/>
+                                    <TextBlock Name="Wins" FontSize="25" Text="{Binding Wins}" Margin="10,5,0,5" Width="150" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1" >
+                <Grid Margin="60" Background="Gray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Border Background="White" Grid.Row="0" Grid.Column="0" Margin="0,0,10,10" >
+                        <TextBlock x:Name="textBlock0x0" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center" />
+                    </Border>
+                    <Border Background="White" Grid.Row="1" Grid.Column="0" Margin="0,10,10,10">
+                        <TextBlock x:Name="textBlock1x0" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center" />
+                    </Border>
+                    <Border Background="White" Grid.Row="2" Grid.Column="0" Margin="0,10,10,0">
+                        <TextBlock x:Name="textBlock2x0" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center" />
+                    </Border>
+                    <Border Background="White" Grid.Row="0" Grid.Column="1" Margin="10,0,10,10" >
+                        <TextBlock x:Name="textBlock0x1" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center"  />
+                    </Border>
+                    <Border Background="White" Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" >
+                        <TextBlock x:Name="textBlock1x1" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center" />
+                    </Border>
+                    <Border Background="White" Grid.Row="2" Grid.Column="1" Margin="10,10,10,0" >
+                        <TextBlock x:Name="textBlock2x1" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center" />
+                    </Border>
+                    <Border Background="White" Grid.Row="0" Grid.Column="2" Margin="10,0,0,10">
+                        <TextBlock x:Name="textBlock0x2" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center" />
+                    </Border>
+                    <Border Background="White" Grid.Row="1" Grid.Column="2" Margin="10,10,0,10" >
+                        <TextBlock x:Name="textBlock1x2" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center" />
+                    </Border>
+                    <Border Background="White" Grid.Row="2" Grid.Column="2" Margin="10,10,0,0">
+                        <TextBlock x:Name="textBlock2x2" Tapped="textBlock_Tapped" Foreground="Black" FontSize="150" TextAlignment="Center" />
+                    </Border>
+                </Grid>
+
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>
